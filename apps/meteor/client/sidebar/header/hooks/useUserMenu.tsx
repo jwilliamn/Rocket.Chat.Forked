@@ -35,12 +35,12 @@ export const useUserMenu = (user: IUser) => {
 			title: t('Status'),
 			items: statusItems,
 		},
-		{
-			title: t('Account'),
-			items: accountItems,
-		},
-		{
-			items: [logoutItem],
-		},
+		// {
+		// 	title: t('Account'),
+		// 	items: accountItems,
+		// },
+		// {
+		// 	items: [logoutItem],
+		// },
 	];
 };

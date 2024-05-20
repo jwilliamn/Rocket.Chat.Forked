@@ -1,4 +1,4 @@
-import { useTranslation, useSetting, useAtLeastOnePermission } from '@rocket.chat/ui-contexts';
+import { useUser, useTranslation, useSetting, useAtLeastOnePermission } from '@rocket.chat/ui-contexts';
 
 import CreateDiscussion from '../../../../components/CreateDiscussion';
 import type { GenericMenuItemProps } from '../../../../components/GenericMenu/GenericMenuItem';
@@ -13,6 +13,8 @@ const CREATE_DIRECT_PERMISSIONS = ['create-d'];
 const CREATE_DISCUSSION_PERMISSIONS = ['start-discussion', 'start-discussion-other-user'];
 
 export const useCreateRoomItems = (): GenericMenuItemProps[] => {
+	const user = useUser(); //line added
+
 	const t = useTranslation();
 	const discussionEnabled = useSetting('Discussion_enabled');
 
@@ -31,7 +33,10 @@ export const useCreateRoomItems = (): GenericMenuItemProps[] => {
 		content: t('Channel'),
 		icon: 'hashtag',
 		onClick: () => {
-			createChannel();
+			// createChannel();
+			if (user?.roles.includes('admin')){
+				createChannel();	
+			}
 		},
 	};
 	const createTeamItem: GenericMenuItemProps = {
@@ -39,7 +44,10 @@ export const useCreateRoomItems = (): GenericMenuItemProps[] => {
 		content: t('Team'),
 		icon: 'team',
 		onClick: () => {
-			createTeam();
+			// createTeam();
+			if (user?.roles.includes('admin')){
+				createTeam();
+			}
 		},
 	};
 	const createDirectMessageItem: GenericMenuItemProps = {

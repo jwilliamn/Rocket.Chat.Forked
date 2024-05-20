@@ -13,16 +13,16 @@ export const useAccountItems = (): GenericMenuItemProps[] => {
 	const { unseenFeatures, featurePreviewEnabled } = useFeaturePreviewList();
 
 	const handleMyAccount = useMutableCallback(() => {
-		router.navigate('/account');
+		// router.navigate('/account');
 	});
 	const handlePreferences = useMutableCallback(() => {
-		router.navigate('/account/preferences');
+		// router.navigate('/account/preferences');
 	});
 	const handleFeaturePreview = useMutableCallback(() => {
-		router.navigate('/account/feature-preview');
+		// router.navigate('/account/feature-preview');
 	});
 	const handleAccessibility = useMutableCallback(() => {
-		router.navigate('/account/accessibility-and-appearance');
+		// router.navigate('/account/accessibility-and-appearance');
 	});
 
 	const featurePreviewItem = {
@@ -40,24 +40,24 @@ export const useAccountItems = (): GenericMenuItemProps[] => {
 	};
 
 	return [
-		{
-			id: 'profile',
-			icon: 'user',
-			content: t('Profile'),
-			onClick: handleMyAccount,
-		},
-		{
-			id: 'preferences',
-			icon: 'customize',
-			content: t('Preferences'),
-			onClick: handlePreferences,
-		},
-		{
-			id: 'accessibility',
-			icon: 'person-arms-spread',
-			content: t('Accessibility_and_Appearance'),
-			onClick: handleAccessibility,
-		},
+		// {
+		// 	id: 'profile',
+		// 	icon: 'user',
+		// 	content: t('Profile'),
+		// 	onClick: handleMyAccount,
+		// },
+		// {
+		// 	id: 'preferences',
+		// 	icon: 'customize',
+		// 	content: t('Preferences'),
+		// 	onClick: handlePreferences,
+		// },
+		// {
+		// 	id: 'accessibility',
+		// 	icon: 'person-arms-spread',
+		// 	content: t('Accessibility_and_Appearance'),
+		// 	onClick: handleAccessibility,
+		// },
 		...(featurePreviewEnabled && defaultFeaturesPreview.length > 0 ? [featurePreviewItem] : []),
 	];
 };

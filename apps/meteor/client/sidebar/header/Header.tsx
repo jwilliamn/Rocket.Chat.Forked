@@ -28,14 +28,15 @@ const Header = (): ReactElement => {
 		<Sidebar.TopBar.Section>
 			{user ? <UserMenu user={user} /> : <UserAvatarWithStatus />}
 			<SidebarHeaderToolbar aria-label={t('Sidebar_actions')}>
-				<Home title={t('Home')} />
+				{user?.roles.includes('admin') ? <Home title={t('Home')} /> : null} 
 				<Search title={t('Search')} />
 				{user && (
 					<>
 						<Directory title={t('Directory')} />
 						<Sort title={t('Display')} />
 						<CreateRoom title={t('Create_new')} data-qa='sidebar-create' />
-						<Administration title={t('Administration')} />
+						{/*  */}
+						{user?.roles.includes('admin') ? <Administration title={t('Administration')} /> : null} 
 					</>
 				)}
 				{!user && <Login title={t('Login')} />}

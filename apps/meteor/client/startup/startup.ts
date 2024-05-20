@@ -37,6 +37,10 @@ Meteor.startup(() => {
 			return;
 		}
 
+		if (user) {
+			fireGlobalEvent('user-in-iframe', user);
+		}
+		
 		const utcOffset = moment().utcOffset() / 60;
 		if (user.utcOffset !== utcOffset) {
 			sdk.call('userSetUtcOffset', utcOffset);

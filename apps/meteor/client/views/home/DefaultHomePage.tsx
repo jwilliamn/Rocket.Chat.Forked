@@ -40,10 +40,10 @@ const DefaultHomePage = (): ReactElement => {
 						{canAddUsers && <AddUsersCard />}
 						{canCreateChannel && <CreateChannelsCard />}
 						<JoinRoomsCard />
-						<MobileAppsCard />
+						{/* <MobileAppsCard />
 						<DesktopAppsCard />
 						<DocumentationCard />
-						{(isAdmin || (isCustomContentVisible && !isCustomContentBodyEmpty)) && <CustomContentCard />}
+						{(isAdmin || (isCustomContentVisible && !isCustomContentBodyEmpty)) && <CustomContentCard />} */}
 					</CardGroup>
 				</Box>
 			</PageScrollableContent>
